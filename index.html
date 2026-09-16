@@ -3,114 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brevo Bulk Mail — Gửi email doanh nghiệp</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Trang học tập</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="app">
-    <header class="header">
-      <div class="header-brand">
-        <div class="logo">✉</div>
-        <div>
-          <h1>Brevo Bulk Mail</h1>
-          <p>Gửi email doanh nghiệp hàng loạt</p>
-        </div>
-      </div>
-      <div class="header-actions">
-        <span id="connectionStatus" class="status-badge status-unknown">Đang kiểm tra...</span>
-        <button id="btnTestConnection" class="btn btn-ghost">Kiểm tra kết nối</button>
-      </div>
-    </header>
 
-    <main class="main">
-      <section class="card">
-        <h2>1. Danh sách người nhận</h2>
-        <div class="tabs">
-          <button class="tab active" data-tab="csv">Upload CSV</button>
-          <button class="tab" data-tab="manual">Nhập thủ công</button>
-        </div>
+  <iframe
+    src="https://chatgpt.com/"
+    title="Trang web học tập"
+    allowfullscreen>
+  </iframe>
 
-        <div id="tab-csv" class="tab-panel active">
-          <div class="upload-zone" id="uploadZone">
-            <input type="file" id="csvFile" accept=".csv,.txt" hidden>
-            <div class="upload-icon">📄</div>
-            <p>Kéo thả file CSV hoặc <span class="link">chọn file</span></p>
-            <small>Cột bắt buộc: <code>email</code>. Tùy chọn: <code>name</code>, <code>company</code>...</small>
-          </div>
-          <div id="csvPreview" class="preview-box hidden"></div>
-        </div>
-
-        <div id="tab-manual" class="tab-panel">
-          <textarea id="manualEmails" rows="6" placeholder="Nhập email, mỗi dòng một địa chỉ&#10;user1@company.com&#10;user2@company.com"></textarea>
-        </div>
-
-        <div class="recipient-count">
-          <strong id="recipientCount">0</strong> người nhận
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>2. Nội dung email</h2>
-        <div class="form-group">
-          <label for="subject">Tiêu đề</label>
-          <input type="text" id="subject" placeholder="Xin chào {{name}}, chúng tôi có ưu đãi dành cho bạn">
-        </div>
-        <div class="form-group">
-          <label for="htmlBody">Nội dung HTML</label>
-          <textarea id="htmlBody" rows="12" placeholder="<h2>Xin chào {{name}},</h2>
-<p>Chúng tôi rất vui được liên hệ với {{company}}...</p>
-<p>Trân trọng,<br>OVF Team</p>"></textarea>
-        </div>
-        <div class="variables-hint">
-          Biến cá nhân hóa: <code>{{name}}</code> <code>{{email}}</code> <code>{{company}}</code> — dùng tên cột trong CSV
-        </div>
-        <div class="form-group">
-          <label for="replyTo">Reply-To (tùy chọn)</label>
-          <input type="email" id="replyTo" placeholder="support@yourdomain.com">
-        </div>
-        <button id="btnPreview" class="btn btn-secondary">Xem trước</button>
-      </section>
-
-      <section class="card">
-        <h2>3. Gửi email</h2>
-        <div id="sendWarning" class="alert alert-info">
-          Lưu ý: Brevo chặn IP chưa được ủy quyền. Hãy thêm IP máy chủ vào <strong>SMTP & API → Authorized IPs</strong> trên dashboard Brevo.
-        </div>
-        <button id="btnSend" class="btn btn-primary btn-lg" disabled>
-          Gửi email hàng loạt
-        </button>
-
-        <div id="progressSection" class="progress-section hidden">
-          <div class="progress-bar">
-            <div id="progressFill" class="progress-fill"></div>
-          </div>
-          <div class="progress-stats">
-            <span id="progressText">0 / 0</span>
-            <span class="stat-success">✓ <span id="sentCount">0</span></span>
-            <span class="stat-failed">✗ <span id="failedCount">0</span></span>
-          </div>
-          <div id="progressLog" class="progress-log"></div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <div id="previewModal" class="modal hidden">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Xem trước email</h3>
-        <button class="modal-close" id="closePreview">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p><strong>Tiêu đề:</strong> <span id="previewSubject"></span></p>
-        <hr>
-        <div id="previewHtml" class="preview-html"></div>
-      </div>
-    </div>
-  </div>
-
-  <script src="/js/app.js"></script>
 </body>
 </html>
